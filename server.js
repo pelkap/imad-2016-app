@@ -5,6 +5,50 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var content = {
+    title: 'Article one | Pelkap Terminal',
+    heading: 'Article One',
+    date: 'Sept 5, 2016',
+    content: `   
+    <p>
+           This is Pelkap. First on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD.
+           
+       </p>
+       <p>
+           This is Pelkap. second on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD.
+           
+       </p>
+       <p>
+           This is Pelkap. third on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD. This is Pelkap. First on IMAD.
+           
+       </p>`
+};
+
+var htmlTemplate = `
+<html>
+ <head>
+     <title>${title}</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="/ui/style.css" rel="stylesheet" />
+ </head>   
+ <body>
+ <div>
+     <a href="/">Home</a>
+ </div>
+ <hr/>
+ <h3>
+     ${heading}
+ </h3>
+   <div>
+       ${date}
+   </div> 
+   <div>
+       ${content}
+   </div>
+   </body>
+</html>
+`;
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
