@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var content = {
+var articleOne = {
     title: 'Article one | Pelkap Terminal',
     heading: 'Article One',
     date: 'Sept 5, 2016',
